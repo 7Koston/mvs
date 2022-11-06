@@ -1,0 +1,2 @@
+# mvs
+Minimalistic VLC Skin
