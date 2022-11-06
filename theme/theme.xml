@@ -1,0 +1,100 @@
+<!DOCTYPE Theme PUBLIC "-//VideoLAN//DTD VLC Skins V2.0//EN" "skin.dtd">
+<Theme version="2.0">
+	<ThemeInfo name="STVL-Stream" author="7Koston" email="seven.koston@gmail.com" webpage="https://github.com/7koston"/>
+	<!-- Copyright 2022 7Koston
+		
+		Licensed under the Apache License, Version 2.0 (the "License");
+		you may not use this file except in compliance with the License.
+		You may obtain a copy of the License at
+
+		http://www.apache.org/licenses/LICENSE-2.0
+
+		Unless required by applicable law or agreed to in writing, software
+		distributed under the License is distributed on an "AS IS" BASIS,
+		WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+		See the License for the specific language governing permissions and
+		limitations under the License.  
+	-->
+	<Bitmap id="bg_bottom" file="bg_bottom.png" alphacolor="#00FF00"/>
+	<Bitmap id="bg_bottom_fs" file="bg_bottom_fs.png" alphacolor="#00FF00"/>
+	<Bitmap id="bg_time_slider" file="bg_time_slider.png" alphacolor="#00FF00"/>
+	<Bitmap id="bg_video" file="bg_video.png" alphacolor="#FF00FF"/>
+	<Bitmap id="close_ac" file="close_ac.png" alphacolor="#FF00FF"/>
+	<Bitmap id="close_hr" file="close_hr.png" alphacolor="#FF00FF"/>
+	<Bitmap id="close_ic" file="close_ic.png" alphacolor="#FF00FF"/>
+	<Bitmap id="fullscreen_ac" file="fullscreen_ac.png" alphacolor="#FF00FF"/>
+	<Bitmap id="fullscreen_hr" file="fullscreen_hr.png" alphacolor="#FF00FF"/>
+	<Bitmap id="fullscreen_ic" file="fullscreen_ic.png" alphacolor="#FF00FF"/>
+	<Bitmap id="maximize_ac" file="maximize_ac.png" alphacolor="#FF00FF"/>
+	<Bitmap id="maximize_hr" file="maximize_hr.png" alphacolor="#FF00FF"/>
+	<Bitmap id="maximize_ic" file="maximize_ic.png" alphacolor="#FF00FF"/>
+	<Bitmap id="minimize_ac" file="minimize_ac.png" alphacolor="#FF00FF"/>
+	<Bitmap id="minimize_hr" file="minimize_hr.png" alphacolor="#FF00FF"/>
+	<Bitmap id="minimize_ic" file="minimize_ic.png" alphacolor="#FF00FF"/>
+	<Bitmap id="pause_ac" file="pause_ac.png" alphacolor="#FF00FF"/>
+	<Bitmap id="pause_hr" file="pause_hr.png" alphacolor="#FF00FF"/>
+	<Bitmap id="pause_ic" file="pause_ic.png" alphacolor="#FF00FF"/>
+	<Bitmap id="play_ac" file="play_ac.png" alphacolor="#FF00FF"/>
+	<Bitmap id="play_hr" file="play_hr.png" alphacolor="#FF00FF"/>
+	<Bitmap id="play_ic" file="play_ic.png" alphacolor="#FF00FF"/>
+	<Bitmap id="resize_grip" file="resize_grip.png" alphacolor="#00FF00"/>
+	<Bitmap id="restore_ac" file="restore_ac.png" alphacolor="#FF00FF"/>
+	<Bitmap id="restore_hr" file="restore_hr.png" alphacolor="#FF00FF"/>
+	<Bitmap id="restore_ic" file="restore_ic.png" alphacolor="#FF00FF"/>
+	<Bitmap id="slider_pos_ac" file="slider_pos_ac.png" alphacolor="#00FF00"/>
+	<Bitmap id="slider_pos_hr" file="slider_pos_hr.png" alphacolor="#00FF00"/>
+	<Bitmap id="slider_pos_ic" file="slider_pos_ic.png" alphacolor="#00FF00"/>
+	<Bitmap id="sound_off_ac" file="sound_off_ac.png" alphacolor="#FF00FF"/>
+	<Bitmap id="sound_off_hr" file="sound_off_hr.png" alphacolor="#FF00FF"/>
+	<Bitmap id="sound_off_ic" file="sound_off_ic.png" alphacolor="#FF00FF"/>
+	<Bitmap id="sound_on_ac" file="sound_on_ac.png" alphacolor="#FF00FF"/>
+	<Bitmap id="sound_on_hr" file="sound_on_hr.png" alphacolor="#FF00FF"/>
+	<Bitmap id="sound_on_ic" file="sound_on_ic.png" alphacolor="#FF00FF"/>
+	<Font id="roboto" file="roboto.ttf" size="14"/>
+	<Window id="player">
+		<Layout id="main" width="720" height="348" maxwidth="9999" maxheight="9999">
+			<Image id="bgBottom" y="300" image="bg_bottom" action="move" resize="scale" lefttop="leftbottom" rightbottom="rightbottom"/>
+			<Video id="video" width="720" height="300" rightbottom="rightbottom"/>
+			<Image id="bgVideo" image="bg_video" action="move" resize="scale" rightbottom="rightbottom"/>
+			<Panel id="bottomLeft" y="300" width="108" height="48" rightbottom="leftbottom" xkeepratio="true" ykeepratio="true">
+				<Checkbox state="vlc.isPlaying" up1="play_ic" up2="pause_ic" down1="play_ac" down2="pause_ac" over1="play_hr" over2="pause_hr" action1="vlc.play()" action2="vlc.pause()" id="playPpause" x="16" y="4" xkeepratio="true" ykeepratio="true"/>
+				<Checkbox state="vlc.isMute" up1="sound_on_ic" up2="sound_off_ic" down1="sound_on_ac" down2="sound_off_ac" over1="sound_on_hr" over2="sound_off_hr" action1="vlc.mute()" action2="vlc.mute()" id="toggleMute" x="64" y="4"/>
+			</Panel>
+			<Panel id="textAndTitle" x="115" y="300" width="380" height="48" lefttop="leftbottom" rightbottom="rightbottom" ykeepratio="true">
+				<Text text="$T" font="roboto" alignment="center" color="#FFFFFF" id="time" y="16" width="80" rightbottom="leftbottom" visible="vlc.isPlaying or vlc.hasAudio or vlc.hasVout"/>
+				<Slider id="timeSlider" x="80" y="12" points="(0,10),(300,10)" thickness="0" value="time" tooltiptext="" up="slider_pos_ic" down="slider_pos_ac" over="slider_pos_hr" rightbottom="rightbottom" ykeepratio="true" visible="vlc.isSeekable">
+					<SliderBackground id="bgTimeSlider" image="bg_time_slider" nbvert="300"/>
+				</Slider>
+				<Text text="$N" font="roboto" color="#AAAAAA" id="title" x="80" y="16" width="300" visible="not vlc.isSeekable"/>
+			</Panel>
+			<Panel id="bottomRight" x="480" y="300" width="240" height="48" lefttop="righttop" rightbottom="rightbottom" xkeepratio="true" ykeepratio="true">
+				<Button up="fullscreen_ic" down="fullscreen_ac" over="fullscreen_hr" action="vlc.fullscreen()" id="fullscreen" x="36" y="4"/>
+				<Button up="minimize_ic" down="minimize_ac" over="minimize_hr" action="vlc.minimize()" id="minimize" x="84" y="4"/>
+				<Button up="maximize_ic" down="maximize_ac" over="maximize_hr" action="player.maximize()" id="maximize" x="132" y="4" visible="not player.isMaximized()"/>
+				<Button up="maximize_ic" down="maximize_ac" over="maximize_hr" action="player.unmaximize()" id="unmaximize" x="132" y="4" visible="player.isMaximized()"/>
+				<Button up="close_ic" down="close_ac" over="close_hr" action="vlc.quit()" id="close" x="180" y="4"/>
+			</Panel>
+			<Image id="resizeGrip" x="704" y="300" image="resize_grip" action="resizeSE" lefttop="rightbottom" rightbottom="rightbottom" xkeepratio="true" ykeepratio="true" help="resize"/>
+		</Layout>
+	</Window>
+	<Window id="fullscreenController">
+		<Layout id="main_fs" width="720" height="64" maxwidth="9999" maxheight="9999">
+			<Image id="bgBottom_fs" image="bg_bottom_fs" action="move" resize="scale" lefttop="leftbottom" rightbottom="rightbottom"/>
+			<Panel id="bottomLeft_fs" width="108" height="64" rightbottom="leftbottom" xkeepratio="true" ykeepratio="true">
+				<Checkbox state="vlc.isPlaying" up1="play_ic" up2="pause_ic" down1="play_ac" down2="pause_ac" over1="play_hr" over2="pause_hr" action1="vlc.play()" action2="vlc.pause()" id="playPause_fs" x="16" y="12" xkeepratio="true" ykeepratio="true"/>
+				<Checkbox state="vlc.isMute" up1="sound_on_ic" up2="sound_off_ic" down1="sound_on_ac" down2="sound_off_ac" over1="sound_on_hr" over2="sound_off_hr" action1="vlc.mute()" action2="vlc.mute()" id="toggleMute_fs" x="64" y="12"/>
+			</Panel>
+			<Panel id="timeTitle_fs" x="108" width="508" height="64" lefttop="leftbottom" rightbottom="rightbottom" ykeepratio="true">
+				<Text text="$t" font="roboto" alignment="center" color="#FFFFFF" id="time_fs" y="26" width="80" rightbottom="leftbottom" visible="vlc.isPlaying or vlc.hasAudio or vlc.hasVout"/>
+				<Slider id="Time slider" x="120" y="24" points="(0,10),(300,10)" thickness="0" value="time" tooltiptext="" up="slider_pos_ic" down="slider_pos_ac" over="slider_pos_hr" rightbottom="rightbottom" ykeepratio="true" visible="vlc.isSeekable">
+					<SliderBackground id="bgTimeSlider_fs" image="bg_time_slider" nbvert="300"/>
+				</Slider>
+				<Text text="$N" font="roboto" color="#AAAAAA" id="title_fs" x="80" y="26" width="410" visible="not vlc.isSeekable"/>
+			</Panel>
+			<Panel id="bottomRight_fs" x="616" width="104" height="64" lefttop="righttop" rightbottom="rightbottom" xkeepratio="true" ykeepratio="true">
+				<Button up="restore_ic" down="restore_ac" over="restore_hr" action="vlc.fullscreen()" id="restore_fs" y="12"/>
+				<Button up="close_ic" down="close_ac" over="close_hr" action="vlc.quit()" id="close_fs" x="48" y="12"/>
+			</Panel>
+		</Layout>
+	</Window>
+</Theme>
