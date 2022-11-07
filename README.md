@@ -2,7 +2,7 @@
 
 Features:
  - Only essential controlls.
- - Lightweight (all raster images are using proper bit-depth).
+ - Lightweight. All raster images have proper bit depth.
  - Resizible (bottom right corner).
  - Improved support for devices with touch screen (enlarged controlls responce area).
  
