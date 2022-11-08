@@ -1,20 +1,21 @@
+<!--
+	Copyright 2022 7Koston
+		
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.  
+-->
 <!DOCTYPE Theme PUBLIC "-//VideoLAN//DTD VLC Skins V2.0//EN" "skin.dtd">
 <Theme version="2.0">
 	<ThemeInfo name="MVS" author="7Koston" email="seven.koston@gmail.com" webpage="https://github.com/7koston"/>
-	<!-- Copyright 2022 7Koston
-		
-		Licensed under the Apache License, Version 2.0 (the "License");
-		you may not use this file except in compliance with the License.
-		You may obtain a copy of the License at
-
-		http://www.apache.org/licenses/LICENSE-2.0
-
-		Unless required by applicable law or agreed to in writing, software
-		distributed under the License is distributed on an "AS IS" BASIS,
-		WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-		See the License for the specific language governing permissions and
-		limitations under the License.  
-	-->
 	<Bitmap id="bg_bottom" file="bg_bottom.png" alphacolor="#00FF00"/>
 	<Bitmap id="bg_bottom_fs" file="bg_bottom_fs.png" alphacolor="#00FF00"/>
 	<Bitmap id="bg_time_slider" file="bg_time_slider.png" alphacolor="#00FF00"/>
@@ -60,12 +61,12 @@
 				<Checkbox state="vlc.isPlaying" up1="play_ic" up2="pause_ic" down1="play_ac" down2="pause_ac" over1="play_hr" over2="pause_hr" action1="vlc.play()" action2="vlc.pause()" id="playPpause" x="16" y="4" xkeepratio="true" ykeepratio="true"/>
 				<Checkbox state="vlc.isMute" up1="sound_on_ic" up2="sound_off_ic" down1="sound_on_ac" down2="sound_off_ac" over1="sound_on_hr" over2="sound_off_hr" action1="vlc.mute()" action2="vlc.mute()" id="toggleMute" x="64" y="4"/>
 			</Panel>
-			<Panel id="textAndTitle" x="115" y="300" width="380" height="48" lefttop="leftbottom" rightbottom="rightbottom" ykeepratio="true">
+			<Panel id="textAndTitle" x="115" y="300" width="380" height="48" rightbottom="rightbottom" ykeepratio="true">
 				<Text text="$T" font="roboto" alignment="center" color="#FFFFFF" id="time" y="16" width="80" rightbottom="leftbottom" visible="vlc.isPlaying or vlc.hasAudio or vlc.hasVout"/>
 				<Slider id="timeSlider" x="80" y="12" points="(0,10),(300,10)" thickness="0" value="time" tooltiptext="" up="slider_pos_ic" down="slider_pos_ac" over="slider_pos_hr" rightbottom="rightbottom" ykeepratio="true" visible="vlc.isSeekable">
 					<SliderBackground id="bgTimeSlider" image="bg_time_slider" nbvert="300"/>
 				</Slider>
-				<Text text="$N" font="roboto" color="#AAAAAA" id="title" x="80" y="16" width="300" visible="not vlc.isSeekable"/>
+				<Text text="$N" font="roboto" color="#AAAAAA" id="title" x="80" y="16" width="300" rightbottom="rightbottom" ykeepratio="true" visible="not vlc.isSeekable"/>
 			</Panel>
 			<Panel id="bottomRight" x="480" y="300" width="240" height="48" lefttop="righttop" rightbottom="rightbottom" xkeepratio="true" ykeepratio="true">
 				<Button up="fullscreen_ic" down="fullscreen_ac" over="fullscreen_hr" action="vlc.fullscreen()" id="fullscreen" x="36" y="4"/>
@@ -89,7 +90,7 @@
 				<Slider id="Time slider" x="120" y="24" points="(0,10),(300,10)" thickness="0" value="time" tooltiptext="" up="slider_pos_ic" down="slider_pos_ac" over="slider_pos_hr" rightbottom="rightbottom" ykeepratio="true" visible="vlc.isSeekable">
 					<SliderBackground id="bgTimeSlider_fs" image="bg_time_slider" nbvert="300"/>
 				</Slider>
-				<Text text="$N" font="roboto" color="#AAAAAA" id="title_fs" x="80" y="26" width="410" visible="not vlc.isSeekable"/>
+				<Text text="$N" font="roboto" color="#AAAAAA" id="title_fs" x="80" y="26" width="410" ykeepratio="true" visible="not vlc.isSeekable"/>
 			</Panel>
 			<Panel id="bottomRight_fs" x="616" width="104" height="64" lefttop="righttop" rightbottom="rightbottom" xkeepratio="true" ykeepratio="true">
 				<Button up="restore_ic" down="restore_ac" over="restore_hr" action="vlc.fullscreen()" id="restore_fs" y="12"/>
